@@ -1,1 +1,274 @@
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#eef4f8;color:#18324b}header{background:#123f70;color:#fff;padding:20px 16px}header b,header span,header small{display:block}header b{font-size:25px}header span,header small{margin-top:5px}nav{display:flex;position:sticky;top:0;background:#fff;padding:6px;gap:5px;z-index:5}nav button{flex:1;border:0;border-radius:10px;padding:10px;background:#edf1f4;font-weight:bold}nav button.on{background:#123f70;color:#fff}nav small{display:block}.page{display:none;max-width:1000px;margin:auto;padding:20px 14px}.page.on{display:block}.card{background:#fff;border:1px solid #d9e2e9;border-radius:14px;padding:18px;margin-bottom:14px}.primary{background:#123f70;color:#fff;border:0;border-radius:9px;padding:11px 15px;font-weight:bold;cursor:pointer}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.stats .card{text-align:center}.stats b{display:block;font-size:27px;color:#123f70}.head{display:flex;justify-content:space-between;align-items:center;gap:10px}input{width:100%;padding:13px;border:1px solid #cbd7df;border-radius:10px;margin:8px 0 14px;font-size:16px}label{display:block;font-weight:bold;margin:10px 0}label input{margin-top:5px}.modal{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:15px;z-index:20}.hide{display:none}.box{background:#fff;padding:20px;border-radius:14px;width:min(500px,100%);position:relative}.x{position:absolute;right:10px;top:5px;border:0;background:none;font-size:28px}footer{text-align:center;background:#123f70;color:#fff;padding:20px;font-size:12px}@media(max-width:600px){header b{font-size:21px}.head h2{font-size:19px}}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef4f8;
+  color: #18324b;
+}
+
+
+/* HEADER */
+
+header {
+  background: #123f70;
+  color: white;
+  padding: 20px 16px;
+}
+
+header b,
+header span,
+header small {
+  display: block;
+}
+
+header b {
+  font-size: 25px;
+}
+
+header span,
+header small {
+  margin-top: 5px;
+}
+
+
+/* NAVIGASI */
+
+nav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 6px;
+  gap: 5px;
+  z-index: 5;
+  box-shadow: 0 2px 7px #0002;
+}
+
+nav button {
+  flex: 1;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  background: #edf1f4;
+  font-weight: bold;
+  color: #18324b;
+}
+
+nav button.on {
+  background: #123f70;
+  color: white;
+}
+
+nav small {
+  display: block;
+}
+
+
+/* HALAMAN */
+
+.page {
+  display: none;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 14px;
+}
+
+.page.on {
+  display: block;
+}
+
+
+/* KARTU */
+
+.card {
+  background: white;
+  border: 1px solid #d9e2e9;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.hero {
+  padding: 22px;
+}
+
+
+/* TOMBOL */
+
+.primary,
+.secondary {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary {
+  background: #123f70;
+  color: white;
+}
+
+.secondary {
+  background: #e7eef5;
+  color: #18324b;
+}
+
+.actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+
+/* STATISTIK */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stats .card {
+  text-align: center;
+}
+
+.stats b {
+  display: block;
+  font-size: 28px;
+  color: #123f70;
+}
+
+
+/* DIREKTORI ALUMNI */
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.head h2 {
+  margin-bottom: 4px;
+}
+
+.head p,
+.muted,
+.meta {
+  color: #607487;
+  font-size: 13px;
+}
+
+
+/* INPUT */
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbd7df;
+  border-radius: 10px;
+  margin: 8px 0 14px;
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+label input {
+  margin-top: 5px;
+}
+
+
+/* FORM */
+
+.wide {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  z-index: 20;
+}
+
+.hide {
+  display: none;
+}
+
+.box {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  width: min(500px, 100%);
+  position: relative;
+  max-height: 92vh;
+  overflow: auto;
+}
+
+.x {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+/* ERROR */
+
+.error {
+  border-left: 5px solid #c33;
+}
+
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  background: #123f70;
+  color: white;
+  padding: 20px;
+  font-size: 12px;
+}
+
+
+/* TAMPILAN HP */
+
+@media (max-width: 600px) {
+
+  header b {
+    font-size: 21px;
+  }
+
+  .head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .head .primary {
+    width: 100%;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+}
