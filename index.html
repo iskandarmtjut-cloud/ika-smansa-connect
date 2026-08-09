@@ -1,245 +1,693 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#123f70">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SUARA TANAH RENCONG</title>
+  <title>Komunitas Asoe Lhok Lhokseumawe</title>
 
-  <link rel="stylesheet" href="style.css?v=4.2">
+  <meta
+    name="description"
+    content="Komunitas Asoe Lhok Lhokseumawe — wadah silaturahmi dan kebersamaan bagi mereka yang memiliki asal-usul dari Kota Lhokseumawe."
+  >
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <b>🎓 SUARA TANAH RENCONG</b>
-  <span>Satu Almamater, Satu Keluarga</span>
-  <small>Digagas oleh <strong>Iskandar M. Tjut</strong></small>
-</header>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<nav>
-  <button class="on" data-page="home">
-    🏠
-    <small>Beranda</small>
-  </button>
+  <header>
 
-  <button data-page="alumni">
-    👥
-    <small>Alumni</small>
-  </button>
-
-  <button data-page="tentang">
-    ℹ️
-    <small>Tentang</small>
-  </button>
-</nav>
-
-<main>
-
-<section id="home" class="page on">
-
-  <div class="hero card">
-
-    <h1>Selamat Datang, Penggemar SUARA TANAH RENCONG!</h1>
-
-    <p>
-      Ruang digital keluarga besar alumni
-      SMAN 1 Lhokseumawe untuk silaturahmi,
-      berbagi kabar dan kolaborasi.
-    </p>
-
-    <div class="actions">
-
-      <button class="primary" onclick="go('alumni')">
-        👥 Lihat Alumni
-      </button>
-
-      <button class="secondary" onclick="openForm()">
-        ➕ Daftar Sebagai Alumni
-      </button>
-
+    <div class="brand">
+      <h1>🏠 ASOE LHOK</h1>
+      <p>Komunitas Asoe Lhok Lhokseumawe</p>
     </div>
 
-  </div>
-
-  <div class="stats">
-
-    <div class="card">
-      <b id="ca">0</b>
-      <small>Alumni Online</small>
-    </div>
-
-    <div class="card">
-      <b>4.2</b>
-      <small>Versi Aplikasi</small>
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <h3>🤝 Mari Terhubung</h3>
-
-    <p>
-      Daftarkan diri agar teman-teman satu almamater
-      dapat menemukan dan terhubung dengan Anda.
-    </p>
-
-  </div>
-
-</section>
-
-
-<section id="alumni" class="page">
-
-  <div class="head">
-
-    <div>
-
-      <h2>👥 Direktori Alumni</h2>
-
-      <p id="status">
-        Menghubungkan ke database...
-      </p>
-
-    </div>
-
-    <button class="primary" onclick="openForm()">
-      ➕ DAFTAR SEBAGAI ALUMNI
-    </button>
-
-  </div>
-
-  <input
-    id="search"
-    placeholder="🔎 Cari nama, angkatan, profesi, domisili..."
-  >
-
-  <div id="alist"></div>
-
-</section>
-
-
-<section id="tentang" class="page">
-
-  <div class="card">
-
-    <h2>ℹ️ Tentang IKA SMANSA CONNECT</h2>
-
-    <p>
-      Ruang digital komunitas alumni
-      SMAN 1 Lhokseumawe.
-    </p>
-
-    <p>
-      <b>Penggagas:</b>
-      Iskandar M. Tjut
-    </p>
-
-    <p>
-      <b>Versi:</b> 4.2
-    </p>
-
-    <p>
-      Database alumni menggunakan Supabase.
-    </p>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- FORM PENDAFTARAN -->
-
-<div id="modal" class="modal hide">
-
-  <div class="box">
-
-    <button class="x" onclick="closeForm()">
-      ×
-    </button>
-
-    <h2>
-      ➕ Daftar Sebagai Alumni
-    </h2>
-
-    <p class="muted">
-      Isi data berikut.
-      Data akan disimpan ke database online.
-    </p>
-
-    <form id="form">
-
-      <label>
-        Nama lengkap
-        <input
-          name="nama"
-          required
-        >
-      </label>
-
-      <label>
-        Angkatan
-        <input
-          name="angkatan"
-          placeholder="Contoh: 1990"
-        >
-      </label>
-
-      <label>
-        Tahun lulus
-        <input
-          name="tahun_lulus"
-          placeholder="Contoh: 1993"
-        >
-      </label>
-
-      <label>
-        Profesi
-        <input
-          name="profesi"
-        >
-      </label>
-
-      <label>
-        Domisili
-        <input
-          name="domisili"
-        >
-      </label>
+    <nav>
 
       <button
-        class="primary wide"
-        type="submit"
+        data-page="home"
+        class="on"
       >
-        💾 SIMPAN DATA ALUMNI
+        🏠 Beranda
       </button>
 
-    </form>
+      <button
+        data-page="members"
+      >
+        👥 Anggota
+      </button>
+
+      <button
+        data-page="about"
+      >
+        ℹ️ Tentang
+      </button>
+
+      <button
+        data-page="admin"
+      >
+        🔐 Pengurus
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       BERANDA
+  ========================== -->
+
+  <main>
+
+    <section
+      id="home"
+      class="page on"
+    >
+
+      <div class="hero">
+
+        <h2>
+          Selamat Datang di
+          <br>
+          <strong>Komunitas Asoe Lhok</strong>
+        </h2>
+
+        <p>
+          Ruang digital bagi mereka yang benar-benar
+          memiliki asal-usul dari Kota Lhokseumawe,
+          di mana pun berada.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="primary"
+            onclick="go('members')"
+          >
+            👥 Lihat Anggota
+          </button>
+
+          <button
+            class="secondary"
+            onclick="openForm()"
+          >
+            ➕ Daftar Sebagai Anggota
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats">
+
+        <div class="card">
+
+          <b id="ca">0</b>
+
+          <small>
+            Anggota Terverifikasi
+          </small>
+
+        </div>
+
+
+        <div class="card">
+
+          <b>2026</b>
+
+          <small>
+            Periode Pertama
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>
+          🤝 Asoe Lhok, di mana pun berada
+        </h3>
+
+        <p>
+          Komunitas ini diperuntukkan bagi siapa saja
+          yang benar-benar mempunyai asal-usul dari
+          Kota Lhokseumawe, bukan semata-mata karena
+          sedang tinggal di Lhokseumawe.
+        </p>
+
+        <p>
+          Setiap pendaftaran akan melalui proses
+          verifikasi dan persetujuan pengurus.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DIREKTORI ANGGOTA
+    ========================== -->
+
+    <section
+      id="members"
+      class="page"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <h2>
+            👥 Direktori Anggota
+          </h2>
+
+          <p id="status">
+            Menghubungkan ke database...
+          </p>
+
+        </div>
+
+        <button
+          class="primary"
+          onclick="openForm()"
+        >
+          ➕ DAFTAR
+        </button>
+
+      </div>
+
+
+      <input
+        id="search"
+        type="search"
+        placeholder="🔎 Cari nama, asal, profesi, domisili..."
+      >
+
+
+      <div id="alist"></div>
+
+    </section>
+
+
+    <!-- =========================
+         TENTANG
+    ========================== -->
+
+    <section
+      id="about"
+      class="page"
+    >
+
+      <div class="card">
+
+        <h2>
+          ℹ️ Tentang Komunitas Asoe Lhok
+        </h2>
+
+        <p>
+          <strong>Komunitas Asoe Lhok Lhokseumawe</strong>
+          merupakan ruang digital untuk mempererat
+          silaturahmi, persaudaraan dan kolaborasi
+          orang-orang yang mempunyai asal-usul dari
+          Kota Lhokseumawe.
+        </p>
+
+        <p>
+          Keanggotaan tidak ditentukan hanya berdasarkan
+          tempat tinggal saat ini, tetapi berdasarkan
+          keterikatan dan asal-usul keluarga dengan
+          Lhokseumawe.
+        </p>
+
+        <hr>
+
+        <p>
+          <strong>Inisiator:</strong><br>
+          Iskandar M. Tjut
+        </p>
+
+        <p>
+          <strong>Ketua Periode Pertama:</strong><br>
+          Iskandar M. Tjut
+        </p>
+
+        <p>
+          <strong>Periode:</strong><br>
+          2026
+        </p>
+
+        <p>
+          <strong>Versi Aplikasi:</strong><br>
+          4.3
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>
+          🔐 Privasi Data
+        </h3>
+
+        <p>
+          Data identitas resmi, orang tua,
+          kakek-nenek dan informasi keluarga
+          yang digunakan untuk proses verifikasi
+          bersifat rahasia.
+        </p>
+
+        <p>
+          Informasi tersebut hanya dapat diakses
+          oleh pengurus yang memiliki kewenangan
+          untuk melakukan verifikasi.
+        </p>
+
+        <p>
+          Data keluarga tidak ditampilkan dalam
+          direktori publik anggota.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PANEL PENGURUS
+    ========================== -->
+
+    <section
+      id="admin"
+      class="page"
+    >
+
+      <div
+        id="admin-login"
+        class="card"
+      >
+
+        <h2>
+          🔐 Login Pengurus
+        </h2>
+
+        <p>
+          Halaman ini khusus Ketua dan Pengurus
+          Komunitas Asoe Lhok.
+        </p>
+
+        <form id="login-form">
+
+          <label>
+            Email
+
+            <input
+              type="email"
+              id="login-email"
+              required
+              autocomplete="email"
+            >
+
+          </label>
+
+
+          <label>
+            Password
+
+            <input
+              type="password"
+              id="login-password"
+              required
+              autocomplete="current-password"
+            >
+
+          </label>
+
+
+          <button
+            class="primary wide"
+            type="submit"
+          >
+            🔐 LOGIN PENGURUS
+          </button>
+
+        </form>
+
+        <p
+          id="login-status"
+          class="muted"
+        ></p>
+
+      </div>
+
+
+      <div
+        id="admin-panel"
+        class="hide"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <h2>
+              👑 Panel Pengurus
+            </h2>
+
+            <p>
+              Ketua Periode Pertama:
+              <strong>Iskandar M. Tjut</strong>
+            </p>
+
+          </div>
+
+          <button
+            class="secondary"
+            onclick="adminLogout()"
+          >
+            Keluar
+          </button>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            🟡 Menunggu Persetujuan
+          </h3>
+
+          <div id="pending-list">
+
+            <p class="muted">
+              Mengambil data pendaftar...
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       MODAL PENDAFTARAN
+  ========================== -->
+
+  <div
+    id="modal"
+    class="modal hide"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="x"
+        onclick="closeForm()"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        ➕ Pendaftaran Anggota
+      </h2>
+
+      <p class="muted">
+        Data harus sesuai dengan identitas resmi.
+        Pendaftaran akan melalui proses verifikasi
+        sebelum disetujui.
+      </p>
+
+
+      <form id="form">
+
+        <h3>
+          👤 Identitas Anggota
+        </h3>
+
+
+        <label>
+          Nama lengkap sesuai identitas
+
+          <input
+            name="nama_lengkap"
+            required
+          >
+        </label>
+
+
+        <label>
+          Tempat lahir
+
+          <input
+            name="tempat_lahir"
+          >
+        </label>
+
+
+        <label>
+          Tanggal lahir
+
+          <input
+            type="date"
+            name="tanggal_lahir"
+          >
+        </label>
+
+
+        <label>
+          NIK
+
+          <input
+            name="nik"
+            inputmode="numeric"
+            maxlength="16"
+            autocomplete="off"
+          >
+        </label>
+
+
+        <h3>
+          🏠 Asal Lhokseumawe
+        </h3>
+
+
+        <label>
+          Kecamatan asal
+
+          <input
+            name="kecamatan_asal"
+            required
+          >
+        </label>
+
+
+        <label>
+          Gampong asal
+
+          <input
+            name="gampong_asal"
+            required
+          >
+        </label>
+
+
+        <label>
+          Domisili sekarang
+
+          <input
+            name="domisili_sekarang"
+          >
+        </label>
+
+
+        <label>
+          Profesi
+
+          <input
+            name="profesi"
+          >
+        </label>
+
+
+        <label>
+          Nomor WhatsApp
+
+          <input
+            name="nomor_whatsapp"
+            inputmode="tel"
+          >
+        </label>
+
+
+        <hr>
+
+
+        <h3>
+          👨‍👩‍👧 Identitas Orang Tua
+        </h3>
+
+        <p class="muted">
+          Data ini bersifat rahasia dan hanya
+          digunakan untuk verifikasi.
+        </p>
+
+
+        <label>
+          Nama ayah
+
+          <input
+            name="nama_ayah"
+          >
+        </label>
+
+
+        <label>
+          Asal ayah
+
+          <input
+            name="asal_ayah"
+          >
+        </label>
+
+
+        <label>
+          Nama ibu
+
+          <input
+            name="nama_ibu"
+          >
+        </label>
+
+
+        <label>
+          Asal ibu
+
+          <input
+            name="asal_ibu"
+          >
+        </label>
+
+
+        <h3>
+          👴👵 Identitas Kakek & Nenek
+        </h3>
+
+
+        <label>
+          Nama kakek dari ayah
+
+          <input
+            name="nama_kakek_ayah"
+          >
+        </label>
+
+
+        <label>
+          Nama nenek dari ayah
+
+          <input
+            name="nama_nenek_ayah"
+          >
+        </label>
+
+
+        <label>
+          Nama kakek dari ibu
+
+          <input
+            name="nama_kakek_ibu"
+          >
+        </label>
+
+
+        <label>
+          Nama nenek dari ibu
+
+          <input
+            name="nama_nenek_ibu"
+          >
+        </label>
+
+
+        <label>
+          Jelaskan hubungan/asal-usul keluarga
+          dengan Lhokseumawe
+
+          <textarea
+            name="keterangan_asal_lhokseumawe"
+            rows="4"
+            required
+          ></textarea>
+
+        </label>
+
+
+        <div class="card">
+
+          🔐 <strong>Data Rahasia</strong>
+
+          <p>
+            Informasi keluarga yang Anda berikan
+            hanya digunakan untuk proses verifikasi
+            keanggotaan dan tidak ditampilkan kepada
+            publik.
+          </p>
+
+        </div>
+
+
+        <button
+          class="primary wide"
+          type="submit"
+        >
+          📩 KIRIM PENDAFTARAN
+        </button>
+
+      </form>
+
+    </div>
 
   </div>
 
-</div>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    Komunitas Asoe Lhok Lhokseumawe
+    <br>
+
+    <small>
+      Di mana pun berada, Lhokseumawe tetap di hati.
+    </small>
+
+    <br><br>
+
+    © 2026 Iskandar M. Tjut
+
+  </footer>
 
 
-<footer>
-
-  IKA SMANSA CONNECT • Satu Almamater, Satu Keluarga
-
-  <br>
-
-  © 2026 Iskandar M. Tjut
-
-</footer>
-
-
-<script src="app.js?v=4.2"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
