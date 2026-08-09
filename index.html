@@ -1,1 +1,245 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123f70"><title>IKA SMANSA CONNECT</title><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script></head><body><header><b>🎓 IKA SMANSA CONNECT</b><span>Satu Almamater, Satu Keluarga</span><small>Digagas oleh <strong>Iskandar M. Tjut</strong></small></header><nav><button class="on" data-page="home">🏠<small>Beranda</small></button><button data-page="alumni">👥<small>Alumni</small></button><button data-page="tentang">ℹ️<small>Tentang</small></button></nav><main><section id="home" class="page on"><div class="card"><h1>Selamat Datang, Alumni SMANSA!</h1><p>Ruang digital keluarga besar alumni SMAN 1 Lhokseumawe untuk silaturahmi dan kolaborasi.</p><button class="primary" onclick="go('alumni')">👥 Lihat Direktori Alumni</button></div><div class="stats"><div class="card"><b id="ca">0</b><small>Alumni Online</small></div><div class="card"><b>V4</b><small>Database Online</small></div></div></section><section id="alumni" class="page"><div class="head"><div><h2>👥 Direktori Alumni</h2><p id="status">Menghubungkan...</p></div><button class="primary" onclick="openForm()">＋ Daftar</button></div><input id="search" placeholder="🔎 Cari nama, angkatan, profesi, domisili..."><div id="alist"></div></section><section id="tentang" class="page"><div class="card"><h2>ℹ️ Tentang</h2><p><b>IKA SMANSA CONNECT</b> — komunitas alumni SMAN 1 Lhokseumawe.</p><p><b>Penggagas:</b> Iskandar M. Tjut</p><p><b>Versi:</b> 4.0 • Supabase</p></div></section></main><div id="modal" class="modal hide"><div class="box"><button class="x" onclick="closeForm()">×</button><h2>Daftar Alumni</h2><form id="form"><label>Nama<input name="nama" required></label><label>Angkatan<input name="angkatan"></label><label>Tahun lulus<input name="tahun_lulus"></label><label>Profesi<input name="profesi"></label><label>Domisili<input name="domisili"></label><button class="primary">💾 Simpan ke Database</button></form></div></div><footer>IKA SMANSA CONNECT • Satu Almamater, Satu Keluarga<br>© 2026 Iskandar M. Tjut</footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f70">
+
+  <title>IKA SMANSA CONNECT</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+
+<body>
+
+<header>
+  <b>🎓 IKA SMANSA CONNECT</b>
+  <span>Satu Almamater, Satu Keluarga</span>
+  <small>Digagas oleh <strong>Iskandar M. Tjut</strong></small>
+</header>
+
+<nav>
+  <button class="on" data-page="home">
+    🏠
+    <small>Beranda</small>
+  </button>
+
+  <button data-page="alumni">
+    👥
+    <small>Alumni</small>
+  </button>
+
+  <button data-page="tentang">
+    ℹ️
+    <small>Tentang</small>
+  </button>
+</nav>
+
+<main>
+
+<section id="home" class="page on">
+
+  <div class="hero card">
+
+    <h1>Selamat Datang, Alumni SMANSA!</h1>
+
+    <p>
+      Ruang digital keluarga besar alumni
+      SMAN 1 Lhokseumawe untuk silaturahmi,
+      berbagi kabar dan kolaborasi.
+    </p>
+
+    <div class="actions">
+
+      <button class="primary" onclick="go('alumni')">
+        👥 Lihat Alumni
+      </button>
+
+      <button class="secondary" onclick="openForm()">
+        ➕ Daftar Sebagai Alumni
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="stats">
+
+    <div class="card">
+      <b id="ca">0</b>
+      <small>Alumni Online</small>
+    </div>
+
+    <div class="card">
+      <b>4.1</b>
+      <small>Versi Aplikasi</small>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>🤝 Mari Terhubung</h3>
+
+    <p>
+      Daftarkan diri agar teman-teman satu almamater
+      dapat menemukan dan terhubung dengan Anda.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="alumni" class="page">
+
+  <div class="head">
+
+    <div>
+
+      <h2>👥 Direktori Alumni</h2>
+
+      <p id="status">
+        Menghubungkan ke database...
+      </p>
+
+    </div>
+
+    <button class="primary" onclick="openForm()">
+      ➕ DAFTAR SEBAGAI ALUMNI
+    </button>
+
+  </div>
+
+  <input
+    id="search"
+    placeholder="🔎 Cari nama, angkatan, profesi, domisili..."
+  >
+
+  <div id="alist"></div>
+
+</section>
+
+
+<section id="tentang" class="page">
+
+  <div class="card">
+
+    <h2>ℹ️ Tentang IKA SMANSA CONNECT</h2>
+
+    <p>
+      Ruang digital komunitas alumni
+      SMAN 1 Lhokseumawe.
+    </p>
+
+    <p>
+      <b>Penggagas:</b>
+      Iskandar M. Tjut
+    </p>
+
+    <p>
+      <b>Versi:</b> 4.1
+    </p>
+
+    <p>
+      Database alumni menggunakan Supabase.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- FORM PENDAFTARAN -->
+
+<div id="modal" class="modal hide">
+
+  <div class="box">
+
+    <button class="x" onclick="closeForm()">
+      ×
+    </button>
+
+    <h2>
+      ➕ Daftar Sebagai Alumni
+    </h2>
+
+    <p class="muted">
+      Isi data berikut.
+      Data akan disimpan ke database online.
+    </p>
+
+    <form id="form">
+
+      <label>
+        Nama lengkap
+        <input
+          name="nama"
+          required
+        >
+      </label>
+
+      <label>
+        Angkatan
+        <input
+          name="angkatan"
+          placeholder="Contoh: 1990"
+        >
+      </label>
+
+      <label>
+        Tahun lulus
+        <input
+          name="tahun_lulus"
+          placeholder="Contoh: 1993"
+        >
+      </label>
+
+      <label>
+        Profesi
+        <input
+          name="profesi"
+        >
+      </label>
+
+      <label>
+        Domisili
+        <input
+          name="domisili"
+        >
+      </label>
+
+      <button
+        class="primary wide"
+        type="submit"
+      >
+        💾 SIMPAN DATA ALUMNI
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  IKA SMANSA CONNECT • Satu Almamater, Satu Keluarga
+
+  <br>
+
+  © 2026 Iskandar M. Tjut
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
